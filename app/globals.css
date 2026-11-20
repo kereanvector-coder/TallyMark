@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --tm-bg: #FAF7F0;
+  --tm-surface: #FFFFFF;
+  --tm-surface-muted: #F3EFE4;
+  --tm-ink: #141413;
+  --tm-muted: #57534E;
+  --tm-border: #E5DFD2;
+  --tm-emerald: #0F5132;
+  --tm-emerald-hover: #0B3E26;
+  --tm-brass: #B4924A;
+}
+
+.dark {
+  --tm-bg: #101210;
+  --tm-surface: #181B18;
+  --tm-surface-muted: #202420;
+  --tm-ink: #F4F1EA;
+  --tm-muted: #A8A29E;
+  --tm-border: #2A2E2A;
+  --tm-emerald: #2D8A5E;
+  --tm-emerald-hover: #24734D;
+  --tm-brass: #C6A45B;
+}
+
+@layer base {
+  html {
+    background-color: var(--tm-bg);
+    color: var(--tm-ink);
+    font-family: var(--font-figtree), var(--font-ibm-plex-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--tm-bg);
+    color: var(--tm-ink);
+    min-height: 100dvh;
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.font-display {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.font-sans-ui {
+  font-family: var(--font-figtree), var(--font-ibm-plex-sans), system-ui, sans-serif;
+}
+
+.font-mono-ledger {
+  font-family: var(--font-ibm-plex-mono), var(--font-ibm-plex-sans), monospace;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.tabular-figures {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.receipt-perforated-edge {
+  background-image: radial-gradient(circle at 8px 0, var(--tm-bg) 5px, transparent 5.5px);
+  background-size: 16px 8px;
+  background-repeat: repeat-x;
+}
+
+.thermal-paper-bg {
+  background-color: #FCFBF7;
+  background-image: linear-gradient(
+    180deg,
+    rgba(180, 146, 74, 0.03) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@media print {
+  @page {
+    margin: 10mm;
+  }
+
+  html,
+  body {
+    background: #FFFFFF !important;
+    color: #141413 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .print-thermal {
+    width: 80mm !important;
+    max-width: 80mm !important;
+    margin: 0 auto !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Tallymark",
+  "description": "Issue professional receipts in seconds and keep a clean digital cash book for Nigerian small businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
